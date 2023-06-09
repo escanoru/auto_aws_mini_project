@@ -12,7 +12,7 @@ remote_state {
   config = {
     bucket = local.deployment_commons.locals.terraform_state_s3_bucket
 
-    key = "${path_relative_to_include()}/terraform.tfstate"
+    key            = "${path_relative_to_include()}/terraform.tfstate"
     region         = local.deployment_commons.locals.terraform_state_aws_region
     encrypt        = true
     dynamodb_table = local.deployment_commons.locals.dynamodb_table
@@ -23,9 +23,9 @@ inputs = merge(
   {
     allowed_account_ids = local.deployment_commons.locals.aws_account_id
     tags = {
-      Terraform = "true"
+      Terraform   = "true"
       Environment = "dev"
-      Account = "tor"
+      Account     = "tor"
     }
   }
 )

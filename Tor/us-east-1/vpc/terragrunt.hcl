@@ -1,7 +1,7 @@
 
 terraform {
   // source = "tfr:///terraform-aws-modules/vpc/aws?version=5.1.0"
-    source = "git::ssh://git@github.com/escanoru/terraform-aws-modules//modules/networking/vpc-vanilla?ref=dev/new-modules-for-demo"
+  source = "git::ssh://git@github.com/escanoru/terraform-aws-modules//modules/networking/vpc-vanilla?ref=dev/new-modules-for-demo"
 }
 
 # Indicate what region to deploy the resources into
@@ -11,11 +11,11 @@ include "root" {
 }
 
 include "provider" {
-    path = find_in_parent_folders("region_common.hcl")
+  path = find_in_parent_folders("region_common.hcl")
 }
 
 inputs = {
-  name = "terratest-example-vpc"
+  name       = "terratest-example-vpc"
   cidr_block = "10.101.0.0/16"
 
   enable_dns_hostnames = false
