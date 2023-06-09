@@ -19,10 +19,20 @@ remote_state {
   }
 }
 
-inputs = { 
-  allowed_account_ids = local.deployment_commons.locals.aws_account_id
-}
+inputs = merge(
+  {
+    allowed_account_ids = local.deployment_commons.locals.aws_account_id
+    tags = {
+      Terraform = "true"
+      Environment = "dev"
+      Account = "tor"
+    }
+  }
+)
 
+// inputs = { 
+//   allowed_account_ids = local.deployment_commons.locals.aws_account_id
+// }
 
 // This load but it doesn't read the actual value we're looking for (aws_region)
 // inputs = merge(

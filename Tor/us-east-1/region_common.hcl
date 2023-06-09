@@ -11,3 +11,7 @@ provider "aws" {
 }
 EOF
 }
+
+inputs = {
+  aws_region = "${local.aws_region}"
+}

@@ -14,16 +14,10 @@ include "provider" {
     path = find_in_parent_folders("region_common.hcl")
 }
 
-# Indicate the input values to use for the variables of the module.
 inputs = {
   name = "terratest-example-vpc"
-  cidr_block = "10.0.101.0/16"
+  cidr_block = "10.101.0.0/16"
 
   enable_dns_hostnames = false
   enable_dns_support   = true
-
-  tags = {
-    Terraform = "true"
-    Environment = "dev"
-  }
 }
