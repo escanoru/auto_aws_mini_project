@@ -1,5 +1,5 @@
 locals {
-    aws_region = "us-east-1"
+    aws_region = "us-west-1"
 }
 
 generate "provider" {
@@ -7,7 +7,7 @@ generate "provider" {
   if_exists = "overwrite_terragrunt"
   contents = <<EOF
 provider "aws" {
-  region = "${local.region.aws_region}"
+  region = "${local.aws_region}"
 }
 EOF
 }
