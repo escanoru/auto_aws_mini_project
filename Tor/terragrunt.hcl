@@ -25,7 +25,7 @@ inputs = merge(
     tags = {
       Terraform   = "true"
       Environment = "dev"
-      Account     = "tor"
+      Account     = "Tor"
     }
   }
 )
