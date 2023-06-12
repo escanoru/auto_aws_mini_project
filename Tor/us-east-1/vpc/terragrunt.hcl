@@ -1,6 +1,6 @@
 
 terraform {
-  source = "git::ssh://git@github.com/escanoru/terraform-aws-modules//modules/networking/vpc-vanilla?ref=dev/new-modules-for-demo"
+  source = "git::ssh://git@github.com/escanoru/terraform-aws-modules//modules/networking/vpc-example?ref=dev/new-modules-for-demo"
 }
 
 # Indicate what region to deploy the resources into
