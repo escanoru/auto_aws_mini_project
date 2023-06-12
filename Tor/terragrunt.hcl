@@ -40,6 +40,6 @@ inputs = merge(
 //     inputs = yamldecode(file(find_in_parent_folders("common_vars.yaml")))
 //   },
 //   {
-//     allowed_account_ids = "386734656804"
+//     allowed_account_ids = "<aws account>"
 //   }
 // )
