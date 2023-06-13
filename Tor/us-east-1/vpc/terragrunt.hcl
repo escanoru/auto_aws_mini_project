@@ -15,7 +15,7 @@ include "provider" {
 
 inputs = {
   vpc_name       = "terratest-example-vpc"
-  vpc_cidr_block = "10.101.0.0/16"
+  cidr_block = "10.101.0.0/16"
 
   enable_dns_hostnames = false
   enable_dns_support   = true
