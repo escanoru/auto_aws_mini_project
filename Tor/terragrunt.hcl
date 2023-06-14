@@ -9,8 +9,9 @@ remote_state {
     path      = "backend.tf"
     if_exists = "overwrite_terragrunt"
   }
-  config = {
+  config = { // https://terragrunt.gruntwork.io/docs/features/keep-your-remote-state-configuration-dry/#s3-specific-remote-state-settings
     bucket = local.deployment_commons.locals.terraform_state_s3_bucket
+    skip_bucket_ssencryption       = true // TG searches for SSE-KMS and I'm not using it at moment, mainly because of $$ :D
 
     key            = "${path_relative_to_include()}/terraform.tfstate"
     region         = local.deployment_commons.locals.terraform_state_aws_region
