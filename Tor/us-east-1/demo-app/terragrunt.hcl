@@ -23,12 +23,20 @@ dependency "vpc" {
 }
 
 inputs = {
-  server_text        = "Test for interview"
-  environment        = "Demo"
-  min_size           = 2
-  desired_capacity   = 2
-  max_size           = 4
-  enable_autoscaling = false
-  vpc_id             = dependency.vpc.outputs.vpc_id
-  subnet_ids         = dependency.vpc.outputs.subnets_cidr_block[0]
+    instance_type      = "t2.micro"
+    server_text        = "Test for interview"
+    environment        = "Demo"
+    server_port        = 80
+    min_size           = 2
+    desired_capacity   = 2
+    max_size           = 4
+    enable_autoscaling = false
+    vpc_id             = dependency.vpc.outputs.vpc_id
+    // subnet_ids         = dependency.vpc.outputs.subnets_cidr_block
+    mysql_config       = {
+        address        = "mock-mysql-address"
+        port           = 1234
+        engine         = "Fake Engine"
+        engine_version = "Fake Engine Version"
+    }
 }
