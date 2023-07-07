@@ -3,7 +3,7 @@ locals {
   deployment_commons = read_terragrunt_config((find_in_parent_folders("deployment_commons.hcl")))
 }
 
-remote_state {
+remote_state { // https://terragrunt.gruntwork.io/docs/reference/config-blocks-and-attributes/#remote_state and https://terragrunt.gruntwork.io/docs/features/keep-your-remote-state-configuration-dry/#s3-specific-remote-state-settings
   backend = "s3"
   generate = {
     path      = "backend.tf"
@@ -11,6 +11,7 @@ remote_state {
   }
   config = {
     bucket = local.deployment_commons.locals.terraform_state_s3_bucket
+    bucket_sse_algorithm =  "AES256"
 
     key            = "${path_relative_to_include()}/terraform.tfstate"
     region         = local.deployment_commons.locals.terraform_state_aws_region
